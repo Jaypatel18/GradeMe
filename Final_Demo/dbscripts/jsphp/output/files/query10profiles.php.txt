@@ -1,0 +1,44 @@
+<?php
+/**
+ * DB Queries for first 10 profiles matching a certain first name
+ * 
+ * @param  [String] value is the first name associated with the profile
+ * @return [resultset] returns the resultset of the query to the db
+ */
+function query_ten_profiles_by_fname($value){
+	$servername = "mysql.cs.iastate.edu";
+	$username = "dbu309ss3";
+	$password = "MDE1MGYyODVi";
+	$dbname = "db309ss3";
+	
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
+	$sql = "SELECT * FROM uprofiles WHERE fname=$value ORDER BY id DESC LIMIT 10";
+	
+	$result = $conn->query($sql);
+	if (!result) {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	} 
+	else {
+		echo "SUCCESS: ten most recent profiles selected by first name succesfully";
+	}
+	
+	$encode = array();
+	while($row = mysqli_fetch_assoc($result)){
+		$encode[] = $row;
+	}
+	
+	$ret = json_encode($encode);
+	
+	$result->close();
+	$thread = $conn->thread_id;
+	$conn->close();
+	$conn->kill($thread);
+	
+	return $ret;
+}
+?>

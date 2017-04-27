@@ -1,0 +1,41 @@
+[Settings]
+{userType : 0}
+{contactType : 1}
+{chatid : 12321}
+{chatid : 12312314}
+[\e Settings]
+[Grades]
+{GPA : 3.90}
+[Class : 12]
+\\Exams : 30
+{Exam 1 : 89}
+{Ex2 : 97}
+{E3 : 72}
+\\Homework : 20
+{Hw1 : 82}
+{hw2 : 83}
+{hw3 : 80}
+{h24 : 79}
+\\Projects : 20
+{mProj : 99}
+{fProj : 98}
+\\Good Looks : 30
+{me : 100}
+[\e Class]
+[Class : 11]
+\\Exams : 50
+{Exam 1 : 89}
+{Ex2 : 97}
+{E3 : 72}
+\\Homework : 20
+{Hw1 : 82}
+{hw2 : 83}
+{hw3 : 80}
+{h24 : 79}
+\\Projects : 20
+{mProj : 99}
+{fProj : 98}
+\\Good Looks : 10
+{me : 100}
+[\e Class]
+[\e Grades]

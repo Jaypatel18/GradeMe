@@ -1,0 +1,51 @@
+package javacon;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Parser {
+	public class Settings{
+		
+		private int userType;
+		private int contactType;
+		private ArrayList<Integer> chats;
+		public Settings(){
+			this.chats = new ArrayList<>();
+		}
+	}
+	public class Grades{
+		
+		public class Classes{
+			private int credits;
+			private int grade;
+			private ArrayList<GradeCategory> cats;
+			
+			public class GradeCategory{
+				private int weight;
+				private int avgPercent;
+				
+				HashMap<String, Integer> assignmentGrades;
+				
+				public GradeCategory(){
+					this.assignmentGrades = new HashMap();
+				}
+			}
+			
+			
+			public Classes(){
+				this.cats = new ArrayList<>();
+			}
+			
+		}
+		private int GPA;
+		private ArrayList<Classes> classes;
+		public Grades(){
+			this.classes = new ArrayList<>();
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

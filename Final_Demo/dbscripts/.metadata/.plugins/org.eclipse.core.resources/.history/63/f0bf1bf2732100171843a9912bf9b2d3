@@ -1,0 +1,21 @@
+package javacon;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Parser {
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			File f = new File("\\..\\javacon\\example.txt");
+			Scanner scan = new Scanner(f);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

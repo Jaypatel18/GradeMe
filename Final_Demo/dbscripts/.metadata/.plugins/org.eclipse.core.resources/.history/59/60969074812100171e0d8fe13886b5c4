@@ -1,0 +1,42 @@
+package parser;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Parser {
+	
+	private File file;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//the first argument is the file name
+			File f = new File(args[0]).getAbsoluteFile();
+			//creates the file if it doesn't exist
+			try {
+				if(!f.exists()){
+					f.createNewFile();
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println(f.getAbsolutePath());
+			System.out.println(f.canRead());
+			System.out.println(f.exists());
+			
+			Scanner scan = new Scanner(f);
+			while(scan.hasNextLine()){
+				System.out.println(scan.nextLine());
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

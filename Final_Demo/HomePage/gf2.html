@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+  	<iframe src="/Final_Demo/HomePage/navigation.html" width="1450" height="200"> </iframe>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tabbable" id="tabs-315987">
+				
+				
+			</div>
+		</div>
+	</div>
+	</div>
+<!--Code for dynamically adding input boxes in a form -->
+<script>
+
+/*var counter = 1;
+var cat = " ";
+var arrN = ' ';
+function addMaterial(divName,catName,arr,l){
+	limit = l;
+	cat = catName;
+	arrN = arr;
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " homework");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = cat + (counter + 1) + " <br><input type='text' name=arr>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}*/
+
+//made a dynamic input box function for each category because the one above did not work when I tried to access the array of elements
+//also allows for more control of a certain category
+var hwNum = 1;
+var hwLimit = 30;
+function addHW(divName){
+     if (hwNum == hwLimit)  {
+          alert("You have reached the limit of adding " + hwNum + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+		  hwNum++;
+		  //alert(hwNum);
+          newdiv.innerHTML = "HW " + (hwNum) + " <br><input type='text' name='hwInput[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          hwLimit++;
+     }
+}
+
+var ExNum = 1;
+var exLimit = 10;
+function addEX(divName){
+     if (ExNum == exLimit)  {
+          alert("You have reached the limit of adding " + ExNum + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+		  ExNum++;
+          newdiv.innerHTML = "Exam " + (ExNum) + " <br><input type='text' name='exInput[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          exLimit++;
+     }
+}
+
+
+var QzNum = 1;
+var qzLimit = 20;
+function addQZ(divName){
+     if (QzNum == qzLimit)  {
+          alert("You have reached the limit of adding " + QzNum + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+		  QzNum++;
+          newdiv.innerHTML = "Quiz " + (QzNum) + " <br><input type='text' name='qzInput[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          qzLimit++;
+     }
+}
+
+var pjNum = 1;
+var pjLimit = 20;
+function addPJ(divName){
+     if (pjNum == pjLimit)  {
+          alert("You have reached the limit of adding " + pjNum + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+		  pjNum++;
+          newdiv.innerHTML = "Project " + (pjNum) + " <br><input type='text' name='pjInput[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          pjLimit++;
+     }
+}
+
+/*function addCat(c){
+	var newdiv = document.createElement('div');
+	newdiv.id = c + "_cat";
+	newdiv.className = c + "_category";
+	document.body.appendChild(newdiv);
+}*/
+
+
+
+</script>
+
+<!--Code for form validation-->
+<script>
+var app = angular.module('grade_form', []);
+
+app.directive('integer', function(){
+	return{
+	
+	};
+});
+</script>
+
+	<form action="gfcalc.php" method="post">
+
+		<div class="row">
+		<!--
+		Container
+		-->
+		<div class="col-md-4">
+			
+				Homework Percent: <input type="text" name="hwp" value="" required><br>
+				Number of Homeworks: <input type = "text" name="NofHW" value = "">
+				<br><br>
+				<div id="inputHW">
+					HW 1<br><input type="text" name="hwInput[]">
+				</div>
+				<input type="button" value="Add another text input" onClick="addHW('inputHW');">
+			
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+		</div>
+		<!--
+		Container
+		-->
+		<div class="col-md-4">
+			
+				Exam Percent: <input type="text" name="ep" value="" required><br>
+				Number of Exams: <input type = "text" name="NofEX" value = "">
+				<br><br>
+				<div id="inputEx">
+					Exam 1<br><input type="text" name="exInput[]">
+				</div>
+				<input type="button" value="Add another text input" onClick="addEX('inputEx');">
+			
+
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+		</div>
+		<!--
+		Container
+		-->
+		<div class="col-md-4">
+			
+				Quiz Percent: <input type="text" name="qp" value="" required><br>
+				Number of Quizes: <input type = "text" name="NofQZ" value = "">
+				<br><br>
+				<div id="inputQz">
+					Quiz 1<br><input type="text" name="qzInput[]">
+				</div>
+				<input type="button" value="Add another text input" onClick="addQZ('inputQz');">
+			
+
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+		</div>
+		</div>
+		<div class="row">
+		<!--
+		Container
+		-->
+		<div class="col-md-4">
+			
+				Project Percent: <input type="text" name="pp" value="" required><br>
+				Number of Projects: <input type = "text" name="NofPJ" value = "">
+				<br><br>
+				<div id="inputPj">
+					Project 1<br><input type="text" name="pjInput[]">
+				</div>
+				<input type="button" value="Add another text input" onClick="addPJ('inputPj');">
+			
+
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+		</div>
+		<!--
+		Container
+		-->
+		<div class="col-md-4">
+			
+				Final Exam Percent: <input type="text" name="fep" value="" required><br>
+				<br><br>
+				<div id="inputPj">
+					Final Exam<br><input type="text" name="Final">
+				</div>
+			
+			<p>
+				<a class="btn" href="#">View details »</a>
+			</p>
+		</div>
+		<!--
+		Container
+		-->
+		<div class="col-md-4">
+					<h2>
+						-----
+					</h2>
+					<p>
+						Category coming soon.
+					</p>
+					<p>
+						<a class="btn" href="#">View details »</a>
+					</p>
+				</div>
+			</div>
+
+		<center>Class Name:<input type = "text" name = "className" value="class" required></center>
+		<center>Desired Grade:<input type = "text" name = "desiredGrade" value="%" required></center>
+		<center> <button type = "submit"> Show!</button></center>
+
+	</form> 
+
+<br><br>
+
+<center>
+	<center><button onClick = "grade_calculations_request();">Input</button></center>
+</center>
+
+
+<script>
+//This function allows the php function in grade_calculations.php to be called by
+//clicking a button in this file
+function grade_calculations_request(){
+	$.post(
+		'grade_calculations.php'
+	).success(function(r){
+		num = $.parseJSON(r);
+		alert(num);
+		//alert("success!");
+	});
+
+}
+</script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

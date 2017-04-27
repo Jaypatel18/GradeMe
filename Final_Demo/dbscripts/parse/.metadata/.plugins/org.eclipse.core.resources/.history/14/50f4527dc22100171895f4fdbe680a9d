@@ -1,0 +1,47 @@
+package parse;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Grades{
+		
+		private Util util = new Util();
+		private int GPA;
+		private ArrayList<Classes> classes;
+		public Grades(File f){
+			this.setClasses(new ArrayList<>());
+		}
+		public int getGPA() {
+			return GPA;
+		}
+		public void setGPA(int gPA) {
+			GPA = gPA;
+		}
+		public ArrayList<Classes> getClasses() {
+			return classes;
+		}
+		public void setClasses(ArrayList<Classes> classes) {
+			this.classes = classes;
+		}
+		public void parseGrades(File f){
+			try {
+				Scanner scan = new Scanner(f);
+				String line = "";
+				int startedGrades = 0;
+				while(scan.hasNextLine())
+				{
+					line = scan.nextLine();
+					if(line.contains("[Grades]")){
+						line = trim(new String(scan.nextLine())); 
+					}
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}

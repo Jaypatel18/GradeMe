@@ -1,0 +1,38 @@
+[:beginclass]
+
+[Basic]
+[:b]
+:id <3>
+:name <CS 227>
+:descr <Introductory course for object oriented programming.>
+
+:prof <Johnny Iverson>
+:credits <4>
+:numstd <274>
+:meets <MWF 4:10p-5:00p>
+
+[:e]
+
+//lines begining with a slash get thrown away as comments 
+
+[Categories]
+[:b]
+
+0 | Homework | 40
+1 | Exams | 30
+2 | Final | 30
+
+[:e]
+
+//every [area] hasa syntax for writing it that can be easily parsed and written
+
+[Grading]
+
+[:b]
+0 | HW1 | 30/30
+0 | HW2 | 28/30
+0 | Homework3 | 29/30
+1 | Exam one | 72/100
+[:e]
+
+[:endclass]

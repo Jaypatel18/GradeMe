@@ -1,0 +1,64 @@
+<!-- javascript code for ratemyprofessor -->
+
+<!DOCTYPE html>
+<html>
+<body style="background-color:grey;">
+
+<title> Rate My Professor </title>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<center> <font size="6" color = "red" background color="black"> Rate the professor! </font> </center>
+<br>
+
+<center>
+
+<form id="frm1" action="form_action.asp">
+
+  <!-- Professor First name: <input type="text" placeholder="First name" name="fname" size="10"><br> <br>
+  Professor Last name: <input type="text" placeholder="Last name" name="lname" size="10"><br> <br>
+  Class number: <input type="text" placeholder="Class number" name="lname" size="12"><br> <br>
+  Rating: <input type="number" placeholder="out of 5" name="lname" size="10" ><br><br> 
+ -->
+
+ <div id="logindiv" ng-app="login">
+        <div ng-controller="loginController">
+            
+            <label>Professor Name:</label>
+            <input type="text" id="username" placeholder="Enter name" ng-model="username" required /><br><br/>
+
+            <label> Last Name:</label>
+            <input type="text" id="password" placeholder="Enter last name" required /><br> </br>
+
+             <label>Class number:</label>
+            <input type="text" id="password" placeholder="Enter class #" ng-model="password" required /><br> </br>
+
+             <label>Rating:</label>
+            <input type="number" id="password" placeholder="Rating out of 5" ng-model="password" required /><br>
+
+            <br/>
+           
+        </div>
+    </div>
+
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+
+</center>
+
+<script>
+function myFunction() {
+    document.getElementById("frm1").submit();
+     window.location = 'http://ratemyprofessor.com';
+     window.alert("added to database thank you!");
+    
+}
+</script>
+
+</body>
+</html>

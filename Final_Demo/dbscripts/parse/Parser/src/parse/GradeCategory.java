@@ -1,0 +1,75 @@
+package parse;
+
+import java.util.HashMap;
+
+public class GradeCategory{
+				private int weight;
+				private double avgPercent;
+				private String name;
+				
+				private HashMap<String, Integer> assignmentGrades;
+				
+				public GradeCategory(){
+					this.assignmentGrades = new HashMap<String, Integer>();
+				}
+				
+				public void calculateAverageInCategory(){
+					int num = 0;
+					double sum = 0;
+					for(String key : this.assignmentGrades.keySet()){
+						num ++;
+						sum += this.assignmentGrades.get(key);
+					}
+					this.avgPercent = sum / num;
+				}
+
+				public int getWeight() {
+					return weight;
+				}
+
+				public void setWeight(int weight) {
+					this.weight = weight;
+				}
+
+				public double getAvgPercent() {
+					return avgPercent;
+				}
+
+				public void setAvgPercent(double avgPercent) {
+					this.avgPercent = avgPercent;
+				}
+
+				public HashMap<String, Integer> getAllAssignmentGrades() {
+					return assignmentGrades;
+				}
+
+				public void setAllAssignmentGrades(HashMap<String, Integer> assignmentGrades) {
+					this.assignmentGrades = assignmentGrades;
+				}
+				
+				public int getAssignmentGrade(String assignment){
+					return (int)this.assignmentGrades.get(assignment);
+				}
+				
+				public void setAssignmentGrade(String assignment, int grade){
+					this.assignmentGrades.put(assignment, new Integer(grade));
+				}
+				
+				public void addAssignmentGrade(Pair<String, Integer> p){
+					this.assignmentGrades.put(p.getKey(), p.getValue());
+				}
+				
+				public void changeAssignmentGrade(Pair<String, Integer> p){
+					//assignmentGrades.put has this functionality already
+					this.addAssignmentGrade(p);
+				}
+
+				public String getName() {
+					return name;
+				}
+
+				public void setName(String name) {
+					this.name = name;
+				}
+				
+			}

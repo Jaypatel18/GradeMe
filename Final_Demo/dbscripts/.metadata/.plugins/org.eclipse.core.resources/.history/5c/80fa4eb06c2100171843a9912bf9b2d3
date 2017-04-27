@@ -1,0 +1,9 @@
+public class Settings{
+		
+		private int userType;
+		private int contactType;
+		private ArrayList<Integer> chats;
+		public Settings(){
+			this.chats = new ArrayList<>();
+		}
+	}

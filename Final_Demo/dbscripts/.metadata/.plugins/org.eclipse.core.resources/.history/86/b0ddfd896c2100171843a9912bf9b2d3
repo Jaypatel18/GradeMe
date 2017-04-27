@@ -1,0 +1,43 @@
+public class GradeCategory{
+				private int weight;
+				private int avgPercent;
+				
+				private HashMap<String, Integer> assignmentGrades;
+				
+				public GradeCategory(){
+					this.assignmentGrades = new HashMap<String, Integer>();
+				}
+
+				public int getWeight() {
+					return weight;
+				}
+
+				public void setWeight(int weight) {
+					this.weight = weight;
+				}
+
+				public int getAvgPercent() {
+					return avgPercent;
+				}
+
+				public void setAvgPercent(int avgPercent) {
+					this.avgPercent = avgPercent;
+				}
+
+				public HashMap<String, Integer> getAllAssignmentGrades() {
+					return assignmentGrades;
+				}
+
+				public void setAllAssignmentGrades(HashMap<String, Integer> assignmentGrades) {
+					this.assignmentGrades = assignmentGrades;
+				}
+				
+				public int getAssignmentGrade(String assignment){
+					return (int)this.assignmentGrades.get(assignment);
+				}
+				
+				public void setAssignmentGrade(String assignment, int grade){
+					this.assignmentGrades.put(assignment, new Integer(grade));
+				}
+				
+			}

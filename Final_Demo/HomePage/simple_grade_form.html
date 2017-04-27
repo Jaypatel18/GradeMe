@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+
+<body>
+<div id="h1" class="header">
+	<center><h1 color = orange style="margin:5px">Grade Form</h1></center>
+	<center> <p1 color = orange style = "margin:3px"> Enter the percentages of each category. If your class does not have one of these put zero. The total should add up to 100 percent. </p1> </center>
+</div>
+
+<br><br>
+
+<script>
+function grade_form(e, hw, q, p, gd)
+{
+	exam = e;
+	homework = hw;
+	quiz = q;
+	participation = p;
+	gradeDesired = gd;
+}
+
+function send_form(gf){
+	xmlhttp=new XMLHttpRequest(); 
+	xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200){
+		
+		}
+		
+	};
+	var  str = JSON.stringfy(gf);
+	xmlhttp.open("GET","send_gf.php?q="+str,true);
+    xmlhttp.send();
+}
+
+function valid(){
+	var num = document.getElementById("frm2");
+	var result = Number(num.elements[0].value) + Number(num.elements[1].value) + Number(num.elements[2].value) + Number(num.elements[3].value);
+	
+	if(result === 100)
+	{
+		alert("Good job!");
+		grade_form(num.elements[0].value, num.elements[1].value, num.elements[2].value, num.elements[3].value, num.elements[4].value);
+		
+	}
+	else
+	{
+		alert("The input does not equal 100");
+	}
+}
+
+
+
+</script>
+
+
+<form id="frm2" action="form_action.asp">
+	Exam Percent: <input type="number" name="qFive" value=""><br><br>
+	Homework Percent: <input type="number" name="qFive" value=""><br><br>
+	Quiz Percent: <input type="number" name="qFive" value=""><br><br>
+	Participation Percent: <input type="number" name="qFive" value=""><br><br>
+	<center>Grade Desired: <input type="number" name="qSix" value=""><br><br></center>
+	<center> <input type = "button" value = "Calculate" onClick = "valid()" > </center>
+</form> 
+
+
+
+
+
+</body>
+
+</html>

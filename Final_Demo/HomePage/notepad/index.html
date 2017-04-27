@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+</body>
+</html>
+
+<iframe src="/Final_Demo/HomePage/navigation.html" width="1450" height="200"> </iframe>
+
+<CENTER>
+
+<body>
+			<div id="h1" class="header">
+			<center><h1 color = orange style="margin:5px">Notes</h1></center>
+			<center> <h2> GradeMe! </h2></center>
+	
+</div>
+
+<br>
+<br>
+<br>
+<script src=
+"http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body ng-app="myNoteApp" ng-controller="myNoteCtrl">
+
+
+<center>
+<textarea style="background-color:white;color:green" ng-model="message" cols="80" rows="20" placeholder="Enter notes for classes"></textarea>
+</center>
+
+<p align="center">
+<button ng-click="save()">Save</button>
+<button ng-click="clear()">Clear</button>
+</p>
+
+
+
+<script src="myNoteApp.js"></script>
+<script src="myNoteCtrl.js"></script>
+
+</body>
+</html>
+
+<!-- Online help from Angular JS tutorial -->

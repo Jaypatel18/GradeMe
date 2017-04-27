@@ -1,0 +1,11 @@
+package parse;
+
+public class Util {
+	public static String trim(String line){
+		if(line.charAt(0) == '{' && line.charAt(line.length()-1) == '}')
+		{
+			line = line.substring(1, line.length()-1);
+		}
+		return line;
+	}
+}

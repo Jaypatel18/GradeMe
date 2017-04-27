@@ -1,0 +1,43 @@
+package javacon;
+
+import java.io.File;
+import java.util.ArrayList;
+
+public class Settings{
+
+	private int userType;
+	private int contactType;
+	private ArrayList<Integer> chats;
+	private File file;
+	public Settings(File f){
+		this.chats = new ArrayList<>();
+		this.file = f;
+	}
+	//Example Settings File
+	/*
+	 * [Settings]
+	 * {userType : 0}
+	 * {contactType : 0}
+	 * {chatid : 12342}
+	 * {chatid : 43252}
+	 * [\e Settings]
+	 */
+	
+	public void scanUserType(){
+		
+	}
+	public void scanContactType(){
+
+	}
+	public void scanChats(){
+
+	}
+	public void scanSettings(){
+		while(scan.hasNextLine()){
+			if(scan.nextLine().equals(new String("[Settings]")))
+		}
+		this.scanUserType();
+		this.scanContactType();
+		this.scanChats();
+	}
+}

@@ -1,0 +1,90 @@
+package parse;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Grades{
+		
+		private Util util;
+		private double GPA;
+		private ArrayList<Classes> classes;
+		private File f;
+		private int l;
+		public Grades(File file){
+			this.classes = new ArrayList<>();
+			this.util = new Util();
+			this.f = file;
+		}
+		public double getGPA() {
+			return GPA;
+		}
+		public void setGPA(double gPA) {
+			GPA = gPA;
+		}
+		public ArrayList<Classes> getClasses() {
+			return classes;
+		}
+		public void setClasses(ArrayList<Classes> classes) {
+			this.classes = classes;
+		}
+		public void parseGrades(){
+			try {
+				Scanner scan = new Scanner(f);
+				String line = "";
+				int startedGrades = 0;
+				int endedGrades = 0;
+				while(scan.hasNextLine())
+				{
+					line = scan.nextLine();
+					if(line.contains("[Grades]"))
+					{
+						startedGrades = 1;
+					}
+					if(line.contains("GPA") && startedGrades == 1 && endedGrades == 0){
+						line = util.trim(line);
+						GPA = util.scanDoubleFromString(line);
+					}
+					if(line.contains("[\\e Grades]"))
+					{
+						endedGrades = 1;
+					}
+				}
+				if(startedGrades == 0 || endedGrades == 0){
+					System.out.println("LOG: Grades section improperly formated.");
+				}
+				parseClasses(f, 0);
+				scan.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		private void parseClasses(File f, int start){
+			Classes n = new Classes();
+			Scanner s;
+			int parsing_class = 0;
+			try {
+				s = new Scanner(f);
+				while(s.hasNextLine()){
+					String line = s.nextLine();
+					if(line.contains("[Class")){
+						line = util.trimSq(line);
+						int classid = util.scanIntFromString(line);
+						n.setClassid(classid);
+					}
+					if(line.contains("[\\e Class]")){
+						classes.add(n);
+						n = new Classes();
+					}
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+	}

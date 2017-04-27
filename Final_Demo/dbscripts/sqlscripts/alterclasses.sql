@@ -1,0 +1,3 @@
+ALTER TABLE `classes`
+MODIFY COLUMN id int(10) AUTO_INCREMENT 
+

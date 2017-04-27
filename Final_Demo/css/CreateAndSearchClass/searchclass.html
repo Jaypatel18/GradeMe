@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Search For Class</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<script>
+
+function send(){
+	/*var xmlhttp = new XMLHttpRequest();
+	var myOBJ = {
+	"classname" : document.getElementById("cn").value
+	};
+	xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("responsetext").innerHTML = this.responseText;
+            }
+        };
+	var str = JSON.stringify(myOBJ);
+	xmlhttp.open("POST", "searchclass.php?q=" + str, true);
+    xmlhttp.send();*/
+};
+</script>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Search For A Class
+			</h3>
+
+			<form role="form" action="searchclass.php" method="get">
+				<div class="form-group" >
+					 
+					<label for="classname">
+						Enter Class Name 
+					</label>
+					<input type="text" class="form-control" id="cn" name="classname"/>
+				</div>
+				<button type="submit" class="btn btn-default" onClick = "send()">
+					Submit
+				</button>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+<p>RESPONSE: <span id="responsetext"></span></p>
+
+</body>
+</html>
